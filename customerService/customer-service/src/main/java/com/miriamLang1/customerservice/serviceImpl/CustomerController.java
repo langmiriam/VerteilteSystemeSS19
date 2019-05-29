@@ -26,7 +26,7 @@ public class CustomerController {
 
 
     @RequestMapping(value="/customers/{id}", method = RequestMethod.GET)
-    public Customer getCustomer(@PathVariable("{id}") String id){
+    public Customer getCustomer(@PathVariable("id") String id){
         return customerService.getCustomer(Long.parseLong(id));
     }
 
