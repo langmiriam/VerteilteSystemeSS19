@@ -16,8 +16,9 @@ public class CustomerController {
 
     @RequestMapping("/hello")
     public String getHello(){
-        return "The Customer Service is online";
+        return "The Customer Service is running.";
     }
+
 
     @RequestMapping("/customers")
     public List<Customer> getAllCustomer(){
@@ -32,21 +33,20 @@ public class CustomerController {
 
 
     @RequestMapping(value="/customers", method= RequestMethod.POST)
-    public void addCustomer(@RequestBody Customer customer){
-        customerService.addCustomer(customer);
+    public String addCustomer(@RequestBody Customer customer){
+        return customerService.addCustomer(customer);
     }
 
 
     @RequestMapping(value="/customers/{id}", method= RequestMethod.PUT)
-    public void updateCustomer(@RequestBody Customer customer, @PathVariable String id){
-        customerService.updateCustomer(Long.parseLong(id), customer);
+    public String updateCustomer(@RequestBody Customer customer, @PathVariable String id){
+        return customerService.updateCustomer(Long.parseLong(id), customer);
     }
 
 
     @RequestMapping(value="/customers/{id}", method= RequestMethod.DELETE)
-    public void removeCustomer(@PathVariable String id){
-        customerService.removeCustomer(Long.parseLong(id));
+    public String removeCustomer(@PathVariable String id){
+        return customerService.removeCustomer(Long.parseLong(id));
     }
-
 
 }
