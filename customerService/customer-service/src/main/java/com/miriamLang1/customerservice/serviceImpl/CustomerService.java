@@ -47,7 +47,7 @@ public class CustomerService {
        savedCustomer.setUsername(customer.getUsername());
        savedCustomer.setEmail(customer.getEmail());
        customerRepository.save(savedCustomer);
-       return "The customer with the id " + "id" + " was updated.";
+       return "The customer with the id " + id + " was updated.";
     }
 
 
