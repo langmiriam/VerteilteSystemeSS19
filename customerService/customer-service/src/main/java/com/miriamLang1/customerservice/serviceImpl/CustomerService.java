@@ -10,6 +10,7 @@ import java.util.List;
 @Service
 public class CustomerService {
 
+    @Autowired
     private CustomerRepository customerRepository;
 
 
@@ -38,7 +39,12 @@ public class CustomerService {
                 return;
             }
         }*/
-        customerRepository.save(customer);
+       Customer savedCustomer = customerRepository.findById(id).get();
+       savedCustomer.setForename(customer.getForename());
+       savedCustomer.setLastname(customer.getLastname());
+       savedCustomer.setUsername(customer.getUsername());
+       savedCustomer.setEmail(customer.getEmail());
+       customerRepository.save(savedCustomer);
     }
 
 
