@@ -16,7 +16,7 @@ public class CustomerController {
 
     @RequestMapping("/hello")
     public String getHello(){
-        return "Hello Mensa!";
+        return "The Customer Service is online";
     }
 
     @RequestMapping("/customers")
