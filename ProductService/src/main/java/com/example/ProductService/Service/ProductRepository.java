@@ -1,4 +1,8 @@
 package com.example.ProductService.Service;
 
-public class ProductRepository {
+import ProductService.Entities.Product;
+import org.springframework.data.repository.CrudRepository;
+
+public interface ProductRepository extends CrudRepository<Product, Long> {
 }
+
