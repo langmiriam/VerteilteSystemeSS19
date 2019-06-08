@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/VerteilteSystemeSS19UNCHANGED.iml" filepath="$PROJECT_DIR$/.idea/VerteilteSystemeSS19UNCHANGED.iml" />
       <module fileurl="file://$PROJECT_DIR$/customer-service/customer-service.iml" filepath="$PROJECT_DIR$/customer-service/customer-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mensaEureka/mensaEureka.iml" filepath="$PROJECT_DIR$/mensaEureka/mensaEureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/orderService/order-service/order-service.iml" filepath="$PROJECT_DIR$/orderService/order-service/order-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ui/ui/ui.iml" filepath="$PROJECT_DIR$/ui/ui/ui.iml" />
     </modules>
   </component>
 </project>

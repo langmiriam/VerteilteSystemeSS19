@@ -7,15 +7,24 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="customer-service" />
+        <module name="order-service" />
+        <module name="mensaEureka" />
+        <module name="ui" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="customer-service" target="1.8" />
+      <module name="mensaEureka" target="1.8" />
+      <module name="order-service" target="1.8" />
+      <module name="ui" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="customer-service" options="-parameters" />
+      <module name="mensaEureka" options="-parameters" />
+      <module name="order-service" options="-parameters" />
+      <module name="ui" options="-parameters" />
     </option>
   </component>
 </project>
