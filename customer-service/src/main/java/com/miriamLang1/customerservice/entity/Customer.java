@@ -1,4 +1,4 @@
-package com.miriamLang1.customerservice.serviceImpl;
+package com.miriamLang1.customerservice.entity;
 
 import javax.persistence.*;
 
@@ -64,4 +64,5 @@ public class Customer {
     public void setUsername(String username) {
         this.username = username;
     }
+
 }
