@@ -2,6 +2,7 @@ package com.mimilang.orderservice.service;
 
 import com.mimilang.orderservice.entities.Customer;
 import com.mimilang.orderservice.entities.OrderItem;
+import com.mimilang.orderservice.entities.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -12,8 +13,11 @@ import java.util.List;
 
 @Service
 public class OrderService {
+
+    @Autowired
     RestTemplate restTemplate;
 
+    @Autowired
     OrderRepository orderRepository;
 
     @Autowired
@@ -26,15 +30,31 @@ public class OrderService {
         return orders;
     }
 
-    public OrderItem getCustomer(Long id) {
+
+    public OrderItem getOrderItem(Long id) {
         OrderItem orderItem = orderRepository.findById(id).get();
         return orderItem;
     }
 
 
-    public OrderItem addOrderItem(Long id) {
-        Customer customer = restTemplate.getForObject("http://localhost:8082/movies/" + id, Customer.class);
-        return orderRepository.save(new OrderItem(customer.getForename(), customer.getLastname(), "spaghetti"));
-
+    public String updateOrderItem(Long id, Product product) {
+        OrderItem savedOrderItem = orderRepository.findById(id).get();
+        savedOrderItem.setProduct(product.getName());
+        orderRepository.save(savedOrderItem);
+        return "The order with the id " + id + " was updated.";
     }
+
+
+    public String removeOrderItem(Long id) {
+        orderRepository.deleteById(id);
+        return "The order with the id " + id + " was removed.";
+    }
+
+
+    public String addOrderItem(Long id, Product product) {
+        Customer customer = restTemplate.getForObject("http://localhost:8080/customers/" + id, Customer.class);
+        orderRepository.save(new OrderItem(customer.getForename(), customer.getLastname(), product.getName()));
+        return "A new order was created for " + customer.getForename() + " " + customer.getLastname() + ".";
+    }
+
 }
