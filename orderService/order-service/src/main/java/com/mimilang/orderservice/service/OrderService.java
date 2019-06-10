@@ -51,8 +51,9 @@ public class OrderService {
     }
 
 
-    public String addOrderItem(Long id, Product product) {
-        Customer customer = restTemplate.getForObject("http://localhost:8080/customers/" + id, Customer.class);
+    public String addOrderItem(Long customerId, Long productId) {
+        Customer customer = restTemplate.getForObject("http://localhost:8080/customers/" + customerId, Customer.class);
+        Product product = restTemplate.getForObject("http://localhost:8081/products/" + productId, Product.class);
         orderRepository.save(new OrderItem(customer.getForename(), customer.getLastname(), product.getName()));
         return "A new order was created for " + customer.getForename() + " " + customer.getLastname() + ".";
     }

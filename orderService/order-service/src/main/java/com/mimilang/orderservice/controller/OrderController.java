@@ -1,6 +1,7 @@
 package com.mimilang.orderservice.controller;
 
 
+import com.mimilang.orderservice.entities.CustomerOrder;
 import com.mimilang.orderservice.entities.OrderItem;
 import com.mimilang.orderservice.entities.Product;
 import com.mimilang.orderservice.service.OrderService;
@@ -38,23 +39,23 @@ public class OrderController {
 
 
     //add an new order
-    @RequestMapping(value="/orders/{id}", method= RequestMethod.POST)
-    public String addOrder(@RequestBody Product product, @PathVariable("id") String id){
-        return orderService.addOrderItem(Long.parseLong(id), product);
+    @RequestMapping(value="/orders", method= RequestMethod.POST)
+    public String addOrder(@RequestBody CustomerOrder customerOrder){
+        return orderService.addOrderItem(customerOrder.getCustomerId(), customerOrder.getProductId());
     }
 
 
     //update an order
     @RequestMapping(value="/orders/{id}", method= RequestMethod.PUT)
     public String  addCustomer(@RequestBody Product product, @PathVariable String id){
-        return orderService.updateOrder(Long.parseLong(id), product);
+        return orderService.updateOrderItem(Long.parseLong(id), product);
     }
 
 
     //delete an order
     @RequestMapping(value="/orders/{id}", method= RequestMethod.DELETE)
     public String removeCustomer(@PathVariable String id){
-        return orderService.removeOrder(Long.parseLong(id));
+        return orderService.removeOrderItem(Long.parseLong(id));
     }
 
 }

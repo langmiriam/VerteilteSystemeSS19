@@ -1,5 +1,6 @@
 package com.miriamLang1.customerservice.serviceImpl;
 
+import com.miriamLang1.customerservice.entity.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,11 +27,13 @@ public class CustomerService {
     }
 
 
-    public void addCustomer(Customer customer) {
+    public String addCustomer(Customer customer) {
         customerRepository.save(customer);
+        return "" + customer.getForename() + " " + customer.getLastname() + " was added.";
     }
 
-    public void updateCustomer(Long id, Customer customer) {
+
+    public String updateCustomer(Long id, Customer customer) {
        /* for(int i=0; i<topics.size(); i++){
             Topic t = topics.get(i);
             if(t.getId().equals(id)){
@@ -38,15 +41,20 @@ public class CustomerService {
                 return;
             }
         }*/
-        customerRepository.save(customer);
+        Customer savedCustomer = customerRepository.findById(id).get();
+        savedCustomer.setForename(customer.getForename());
+        savedCustomer.setLastname(customer.getLastname());
+        savedCustomer.setUsername(customer.getUsername());
+        savedCustomer.setEmail(customer.getEmail());
+        customerRepository.save(savedCustomer);
+        return "The customer with the id " + id + " was updated.";
     }
 
 
-    public void removeCustomer(Long id) {
+    public String removeCustomer(Long id) {
         //topics.removeIf(t -> t.getId().equals(id));
         customerRepository.deleteById(id);
+        return "The customer with the id " + id + " was removed.";
     }
-
-
 
 }

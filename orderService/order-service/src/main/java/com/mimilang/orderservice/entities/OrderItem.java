@@ -20,8 +20,6 @@ public class OrderItem {
     @NotNull
     private String lastname;
 
-    // wird noch hard coded, weil es noh kein produkt gibt
-
     @NotNull
     private String product;
 
@@ -65,4 +63,5 @@ public class OrderItem {
     public void setProduct(String product) {
         this.product = product;
     }
+
 }

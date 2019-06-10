@@ -1,12 +1,7 @@
 package com.mimilang.orderservice.entities;
 
-import javax.persistence.*;
-
-@Entity
 public class Customer {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String forename;
     private String lastname;
@@ -63,4 +58,5 @@ public class Customer {
     public void setUsername(String username) {
         this.username = username;
     }
+
 }
