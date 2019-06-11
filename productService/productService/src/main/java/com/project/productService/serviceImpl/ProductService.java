@@ -29,7 +29,7 @@ public class ProductService {
 
     public String addProduct(Product product) {
         productRepository.save(product);
-        return "" + product.getName() + " " + product.getPrice() + product.isVegetarian() + " was added.";
+        return "The product " + product.getName() +  " was added.";
     }
 
 
@@ -37,9 +37,9 @@ public class ProductService {
         Product savedProduct = productRepository.findById(id).get();
         savedProduct.setName(product.getName());
         savedProduct.setPrice(product.getPrice());
-        savedProduct.setVegetarian(product.isVegetarian());
+        savedProduct.setIsVegetarian(product.getIsVegetarian());
         productRepository.save(savedProduct);
-        return "The customer with the id " + id + " was updated.";
+        return "The product with the id " + id + " was updated.";
     }
 
 

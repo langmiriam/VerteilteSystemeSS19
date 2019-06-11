@@ -11,8 +11,7 @@ public class Product {
     private String name;
     private double price;
     private boolean isVegetarian;
-    public Product(Long id, String name, double price, boolean isVegetarian){
-        this.id = id;
+    public Product(String name, double price, boolean isVegetarian){
         this.name = name;
         this.price = price;
         this.isVegetarian = isVegetarian;
@@ -39,10 +38,10 @@ public class Product {
     public void setId(Long id) {
         this.id = id;
     }
-    public boolean isVegetarian() {
-        return isVegetarian;
+    public boolean getIsVegetarian() {
+        return this.isVegetarian;
     }
-    public void setVegetarian(boolean vegetarian) {
-        isVegetarian = vegetarian;
+    public void setIsVegetarian(boolean vegetarian) {
+        this.isVegetarian = vegetarian;
     }
 }

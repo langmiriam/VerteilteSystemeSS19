@@ -13,32 +13,32 @@ public class ProductController {
     private ProductService productService;
 
 
-    @RequestMapping("/products/hello")
+    @RequestMapping("/hello")
     public String getHello(){
         return "The Product Service is running.";
     }
 
 
     @RequestMapping("/products")
-    public List<Product> getAllCustomer(){
+    public List<Product> getAllProducts(){
         return productService.getAllProducts();
     }
 
 
     @RequestMapping(value="/products/{id}", method = RequestMethod.GET)
-    public Product getCustomer(@PathVariable("id") String id){
+    public Product getProduct(@PathVariable("id") String id){
         return productService.getProductById(Long.parseLong(id));
     }
 
 
     @RequestMapping(value="/products", method= RequestMethod.POST)
-    public String addCustomer(@RequestBody Product product){
+    public String addProduct(@RequestBody Product product){
         return productService.addProduct(product);
     }
 
 
     @RequestMapping(value="/products/{id}", method= RequestMethod.PUT)
-    public String updateCustomer(@RequestBody Product product, @PathVariable String id){
+    public String updateProduct(@RequestBody Product product, @PathVariable String id){
         return productService.updateProduct(Long.parseLong(id), product);
     }
 
