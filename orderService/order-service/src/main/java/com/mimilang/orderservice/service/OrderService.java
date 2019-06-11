@@ -3,10 +3,10 @@ package com.mimilang.orderservice.service;
 import com.mimilang.orderservice.entities.Customer;
 import com.mimilang.orderservice.entities.OrderItem;
 import com.mimilang.orderservice.entities.Product;
+import com.netflix.discovery.DiscoveryClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,9 +20,10 @@ public class OrderService {
     @Autowired
     OrderRepository orderRepository;
 
+/*
     @Autowired
     private WebClient.Builder webClientBuilder;
-
+*/
 
     public List<OrderItem> getAllOrderItems() {
         List<OrderItem> orders = new ArrayList<>();
@@ -52,8 +53,8 @@ public class OrderService {
 
 
     public String addOrderItem(Long customerId, Long productId) {
-        Customer customer = restTemplate.getForObject("http://localhost:8080/customers/" + customerId, Customer.class);
-        Product product = restTemplate.getForObject("http://localhost:8081/products/" + productId, Product.class);
+        Customer customer = restTemplate.getForObject("http://Customer-Service/customers/" + customerId, Customer.class);
+        Product product = restTemplate.getForObject("http://Product-Service/products/" + productId, Product.class);
         orderRepository.save(new OrderItem(customer.getForename(), customer.getLastname(), product.getName()));
         return "A new order was created for " + customer.getForename() + " " + customer.getLastname() + ".";
     }
