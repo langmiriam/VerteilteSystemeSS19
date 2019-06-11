@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/mensaEureka/pom.xml" />
         <option value="$PROJECT_DIR$/orderService/order-service/pom.xml" />
         <option value="$PROJECT_DIR$/productService/productService/pom.xml" />
+        <option value="$PROJECT_DIR$/MensaConfigServer/pom.xml" />
       </list>
     </option>
   </component>

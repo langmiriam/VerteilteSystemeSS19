@@ -53,8 +53,8 @@ public class OrderService {
 
 
     public String addOrderItem(Long customerId, Long productId) {
-        Customer customer = restTemplate.getForObject("http://Customer-Service/customers/" + customerId, Customer.class);
-        Product product = restTemplate.getForObject("http://Product-Service/products/" + productId, Product.class);
+        Customer customer = restTemplate.getForObject("http://customer-service/customers/" + customerId, Customer.class);
+        Product product = restTemplate.getForObject("http://product-service/products/" + productId, Product.class);
         orderRepository.save(new OrderItem(customer.getForename(), customer.getLastname(), product.getName()));
         return "A new order was created for " + customer.getForename() + " " + customer.getLastname() + ".";
     }
