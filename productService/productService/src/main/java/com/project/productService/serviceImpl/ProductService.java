@@ -28,8 +28,14 @@ public class ProductService {
 
 
     public String addProduct(Product product) {
-        productRepository.save(product);
-        return "The product " + product.getName() +  " was added.";
+        if(product.getPrice() == 0 || product.getPrice() < 0){
+            return "The price must not be negativ or 0!";
+        }
+        else{
+            productRepository.save(product);
+            return "The product " + product.getName() +  " was added.";
+        }
+
     }
 
 

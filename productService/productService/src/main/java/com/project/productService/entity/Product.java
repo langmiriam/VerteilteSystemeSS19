@@ -1,6 +1,7 @@
 package com.project.productService.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "product")
@@ -8,9 +9,16 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @NotNull
     private String name;
+
+    @NotNull
     private double price;
+
+    @NotNull
     private boolean isVegetarian;
+
     public Product(String name, double price, boolean isVegetarian){
         this.name = name;
         this.price = price;

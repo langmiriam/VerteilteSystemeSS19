@@ -41,6 +41,7 @@ public class CustomerService {
                 return;
             }
         }*/
+
         Customer savedCustomer = customerRepository.findById(id).get();
         savedCustomer.setForename(customer.getForename());
         savedCustomer.setLastname(customer.getLastname());
