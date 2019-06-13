@@ -17,42 +17,42 @@ public class OrderController {
     private OrderService orderService;
 
 
-    //only for tests
+    //Used to test if the Order Service is running.
     @RequestMapping("/hello")
     public String getHello(){
         return "The Order Service is running.";
     }
 
 
-    //gets all orders
+    //Get all existing orders
     @RequestMapping("/orders")
     public List<OrderItem> getAllOrders(){
         return orderService.getAllOrderItems();
     }
 
 
-    //gets one specific order
+    //Get one specific order
     @RequestMapping(value="/orders/{id}", method = RequestMethod.GET)
     public OrderItem getOrderItem(@PathVariable("id") String id){
         return orderService.getOrderItem(Long.parseLong(id));
     }
 
 
-    //add an new order
+    //Add a new order
     @RequestMapping(value="/orders", method= RequestMethod.POST)
     public String addOrder(@RequestBody CustomerOrder customerOrder){
         return orderService.addOrderItem(customerOrder.getCustomerId(), customerOrder.getProductId());
     }
 
 
-    //update an order
+    //Update an order
     @RequestMapping(value="/orders/{id}", method= RequestMethod.PUT)
     public String  addCustomer(@RequestBody Product product, @PathVariable String id){
         return orderService.updateOrderItem(Long.parseLong(id), product);
     }
 
 
-    //delete an order
+    //Delete an order
     @RequestMapping(value="/orders/{id}", method= RequestMethod.DELETE)
     public String removeCustomer(@PathVariable String id){
         return orderService.removeOrderItem(Long.parseLong(id));

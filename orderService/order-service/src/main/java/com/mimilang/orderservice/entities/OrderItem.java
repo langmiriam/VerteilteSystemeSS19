@@ -12,8 +12,7 @@ public class OrderItem {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    //wird geladen als Service vom Customer
+    
     @NotNull
     private String forename;
 
