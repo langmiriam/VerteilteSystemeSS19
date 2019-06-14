@@ -1,0 +1,3 @@
+docker run -e MYSQL_ROOT_PASSWORD=secr3t -e MYSQL_USER=example-user -e MYSQL_PASSWORD=secr3t -e MYSQL_DATABASE=MyTestDb -e MYSQL_ROOT_HOST=% --name mysql_customer --publish 3307:3306 mysql
+docker run -e MYSQL_ROOT_PASSWORD=secr3t -e MYSQL_USER=example-user -e MYSQL_PASSWORD=secr3t -e MYSQL_DATABASE=MyTestDb -e MYSQL_ROOT_HOST=% --name mysql_order --publish 3308:3306 mysql
+docker run -e MYSQL_ROOT_PASSWORD=secr3t -e MYSQL_USER=example-user -e MYSQL_PASSWORD=secr3t -e MYSQL_DATABASE=MyTestDb -e MYSQL_ROOT_HOST=% --name mysql_product --publish 3309:3306 mysql
