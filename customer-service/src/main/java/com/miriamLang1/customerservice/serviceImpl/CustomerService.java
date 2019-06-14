@@ -47,7 +47,6 @@ public class CustomerService {
 
     //Remove
     public String removeCustomer(Long id) {
-        //topics.removeIf(t -> t.getId().equals(id));
         customerRepository.deleteById(id);
         return "The customer with the id " + id + " was removed.";
     }

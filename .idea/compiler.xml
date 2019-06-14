@@ -10,7 +10,6 @@
         <module name="MensaConfigServer" />
         <module name="customer-service" />
         <module name="order-service" />
-        <module name="ui" />
         <module name="mensaEureka" />
       </profile>
     </annotationProcessing>
