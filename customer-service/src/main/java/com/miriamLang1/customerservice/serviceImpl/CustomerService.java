@@ -9,38 +9,32 @@ import java.util.List;
 
 @Service
 public class CustomerService {
+    //Database transactions
 
     @Autowired
     private CustomerRepository customerRepository;
 
-
+    //Read all
     public List<Customer> getAllCustomer() {
         List<Customer> customers = new ArrayList<>();
         customerRepository.findAll().forEach(customers::add);
         return customers;
     }
 
-
+    //Read one
     public Customer getCustomer(Long id) {
         Customer customer = customerRepository.findById(id).get();
         return customer;
     }
 
-
+    //Create
     public String addCustomer(Customer customer) {
         customerRepository.save(customer);
         return "" + customer.getForename() + " " + customer.getLastname() + " was added.";
     }
 
-
+    //Update
     public String updateCustomer(Long id, Customer customer) {
-       /* for(int i=0; i<topics.size(); i++){
-            Topic t = topics.get(i);
-            if(t.getId().equals(id)){
-                topics.set(i, topic);
-                return;
-            }
-        }*/
 
         Customer savedCustomer = customerRepository.findById(id).get();
         savedCustomer.setForename(customer.getForename());
@@ -51,7 +45,7 @@ public class CustomerService {
         return "The customer with the id " + id + " was updated.";
     }
 
-
+    //Remove
     public String removeCustomer(Long id) {
         //topics.removeIf(t -> t.getId().equals(id));
         customerRepository.deleteById(id);

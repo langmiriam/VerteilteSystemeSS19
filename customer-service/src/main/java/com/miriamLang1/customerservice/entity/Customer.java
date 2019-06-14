@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
+//Table name for DB
 @Table (name="customer")
 public class Customer {
 
@@ -34,6 +35,8 @@ public class Customer {
     }
 
 
+
+    //============ Getter/Setter==============
     public String getEmail() {
         return email;
     }
